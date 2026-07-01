@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Dijital Dergi</title>
+    <title>Modern Dijital Dergi (Real Flipbook)</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PDF.js Kütüphanesi -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <!-- GERÇEKÇİ KIVRILMA İÇİN: Page-Flip Kütüphanesi -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 </head>
 <body>
 
@@ -14,12 +17,10 @@
         <div class="hero-container">
             <h1 class="title">Premium <span class="highlight">Magazine</span></h1>
             <p class="subtitle">Modern, hızlı ve etkileşimli dijital okuma deneyimi.</p>
-            
             <div class="action-buttons">
                 <button id="btn-read" class="btn btn-primary">
                     <i class="fa-solid fa-book-open"></i> Dergiyi Oku
                 </button>
-                
                 <label for="pdf-upload" class="btn btn-secondary">
                     <i class="fa-solid fa-upload"></i> Kendi PDF'ini Yükle
                 </label>
@@ -30,10 +31,8 @@
 
     <div id="viewer-screen" class="screen hidden">
         <header class="viewer-header">
-            <button id="btn-back" class="nav-btn" title="Ana Sayfaya Dön">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <span id="book-title">Dijital Dergi</span>
+            <button id="btn-back" class="nav-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <span id="book-title">Dijital Dergi Dünyası</span>
             <div class="page-controls">
                 <button id="btn-prev" class="control-btn"><i class="fa-solid fa-chevron-left"></i></button>
                 <span id="page-info">Sayfa: <span id="current-page">0</span> / <span id="total-pages">0</span></span>
@@ -42,14 +41,18 @@
         </header>
 
         <main class="flipbook-container">
-            <div id="flipbook" class="flipbook">
+            <!-- Kütüphanenin istediği ana sarmalayıcı -->
+            <div id="flipbook-wrapper">
+                <div id="flipbook" class="flipbook">
+                    <!-- Sayfalar buraya gelecek -->
                 </div>
+            </div>
         </main>
     </div>
 
     <div id="loader" class="loader-container hidden">
         <div class="spinner"></div>
-        <p>PDF İşleniyor, Lütfen Bekleyin...</p>
+        <p>Gerçekçi Sayfa Efektleri Hazırlanıyor...</p>
     </div>
 
     <script src="script.js"></script>
